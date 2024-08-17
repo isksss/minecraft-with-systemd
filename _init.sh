@@ -5,8 +5,6 @@
 ##############################################
 
 # プロジェクト変数
-export PAPERMC_PROJECT="${PAPERMC_PROJECT:-"paper"}"
-export PAPERMC_VERSION="${PAPERMC_VERSION:-"1.21.1"}"
 export MCHOME="/paper"
 export JAR_FILE="$MCHOME/server.jar"
 export PAPERMC_URL="https://api.papermc.io/v2/projects/${PAPERMC_PROJECT}/versions/${PAPERMC_VERSION}"
@@ -45,6 +43,8 @@ if [ ! -d "$MCHOME" ]; then
     sudo mv "./paper" "$MCHOME"
     # 環境変数ファイルを作成
     cp $MCHOME/.env_sample $MCHOME/.env
+    echo-r "edit .env"
+    exit 0
 fi
 
 cd $MCHOME
