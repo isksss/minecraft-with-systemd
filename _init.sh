@@ -55,8 +55,8 @@ sudo timedatectl set-timezone Asia/Tokyo
 
 # サービスを追加する
 echo-r "copy service and timer"
-sudo cp -f $SCRIPT_DIR/minecraft.service /etc/systemd/system/minecraft.service
-sudo cp -f $SCRIPT_DIR/minecraft.timer /etc/systemd/system/minecraft.timer
+sudo cp -f $MCHOME/minecraft.service /etc/systemd/system/minecraft.service
+sudo cp -f $MCHOME/minecraft.timer /etc/systemd/system/minecraft.timer
 
 # jar fileをダウンロードする
 echo-r "download project"
