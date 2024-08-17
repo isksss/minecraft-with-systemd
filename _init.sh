@@ -7,7 +7,6 @@
 # プロジェクト変数
 export MCHOME="/paper"
 export JAR_FILE="$MCHOME/server.jar"
-export PAPERMC_URL="https://api.papermc.io/v2/projects/${PAPERMC_PROJECT}/versions/${PAPERMC_VERSION}"
 
 # 作業環境
 export TEMP_DIR=$(mktemp -d)
@@ -65,6 +64,7 @@ sudo cp -f $MCHOME/minecraft.timer /etc/systemd/system/minecraft.timer
 # jar fileをダウンロードする
 echo-r "download project"
 echo-r "project: ${PAPERMC_PROJECT}, version:${PAPERMC_VERSION}"
+PAPERMC_URL="https://api.papermc.io/v2/projects/${PAPERMC_PROJECT}/versions/${PAPERMC_VERSION}"
 LATEST_BUILD=$(curl -H 'accept: application/json' -fsSL ${PAPERMC_URL} | jq '.builds[-1]')
 DOWNLOAD_URL="${PAPERMC_URL}/builds/${LATEST_BUILD}/downloads/${PAPERMC_PROJECT}-${PAPERMC_VERSION}-${LATEST_BUILD}.jar"
 echo-r ${DOWNLOAD_URL}
