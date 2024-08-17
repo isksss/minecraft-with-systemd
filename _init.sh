@@ -41,13 +41,17 @@ if [ ! -d "$MCHOME" ]; then
     git clone https://github.com/isksss/minecraft-with-systemd.git ./paper
     chown paper:paper ./paper
     sudo mv "./paper" "$MCHOME"
-    # 環境変数ファイルを作成
-    cp $MCHOME/.env_sample $MCHOME/.env
-    echo-r "edit .env"
-    exit 0
 fi
 
 cd $MCHOME
+if [ -f "$MCHOME/.env" ];then
+    . "$MCHOME/.env"
+else
+    # 環境変数ファイルを作成
+    cp $MCHOME/.env_sample $MCHOME/.env
+    echo-r "edit .env"
+    exit 1
+fi
 
 # タイムゾーンを設定
 echo-r "set timezone"
