@@ -3,7 +3,8 @@ Description=launch minecraft paper server
 After=network.target
 
 [Service]
-Type=forking
+EnvironmentFile=/paper/.env
+Type=simple
 User=paper
 WorkingDirectory=/paper
 ExecStart=/usr/bin/java -jar -Xmx512M -Xms512M /paper/server.jar nogui
