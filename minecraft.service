@@ -1,0 +1,17 @@
+[Unit]
+Description=launch minecraft paper server
+After=network.target
+
+[Service]
+Type=forking
+User=paper
+WorkingDirectory=/paper
+ExecStart=/usr/bin/java -jar -Xmx512M -Xms512M /paper/server.jar nogui
+ExecStartPost=/bin/sleep 1
+ExecStop=/bin/sh -c 'echo "stop\n" | /usr/bin/netcat localhost 25565'
+Restart=always
+StandardOutput=append:/paper/server.log
+StandardError=append:/paper/server.log
+
+[Install]
+WantedBy = multi-user.target
