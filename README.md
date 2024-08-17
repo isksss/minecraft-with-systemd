@@ -3,5 +3,9 @@
 ## usage
 
 ```shell
-$ bash _init.sh
+$ curl -fsSL https://raw.githubusercontent.com/isksss/minecraft-with-systemd/main/_init.sh | bash
+
+# or
+
+$ cd /paper && bash _init.sh
 ```
