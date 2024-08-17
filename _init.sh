@@ -26,6 +26,10 @@ echo-r() {
 ##############################################
 # init
 ##############################################
+# sudoをnopasswdで
+{
+    echo "$(whoami) ALL=(ALL) NOPASSWD: ALL"
+} | sudo tee -a /etc/sudoers >> /dev/null
 
 # インストール
 echo-r "install java etc..."
