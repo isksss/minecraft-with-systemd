@@ -1,1 +1,9 @@
-.env
+*
+
+# whitelist
+!.gitignore
+!init.sh
+!.env
+!eula.txt
+!README.md
+!start.sh
